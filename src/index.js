@@ -1,3 +1,4 @@
+// Set up your application entry point here...
 /* eslint-disable import/default */
 
 import React from 'react';
@@ -8,7 +9,14 @@ import Root from './components/Root';
 
 import configureStore from './store/configureStore';
 require('./favicon.ico'); // Tell webpack to load favicon.ico
-import './styles/styles.scss'; // Yep, that's right. You can import SASS/CSS files too! Webpack will run the associated loader and plug this into the page.
+
+require('../node_modules/jquery/dist/jquery.min.js');
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap/dist/js/bootstrap';
+
+
+import './styles/theme.css';
+import './styles/design.css';
 import { syncHistoryWithStore } from 'react-router-redux';
 
 const store = configureStore();
