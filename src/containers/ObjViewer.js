@@ -11,12 +11,12 @@ class ObjViewer extends React.Component {
 
     constructor() {
         super()
-        this.state = {  objcolor: 0xff0000 };
+        this.state = { objcolor: 0xff0000 };
         this.changeColor = this.changeColor.bind(this);
         this.setBlue = this.setBlue.bind(this);
     }
 
-    setBlue(){
+    setBlue() {
         this.setState({ objcolor: 0xff00ff });
         this.props.actions.chanageModelColor(0xff00ff);
     }
@@ -29,6 +29,8 @@ class ObjViewer extends React.Component {
         return (
             <div>
                 <div className="container">
+
+
                     <h2>Dropdowns</h2>
                     <div className="dropdown">
                         <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
@@ -40,7 +42,7 @@ class ObjViewer extends React.Component {
                         </ul>
                     </div>
                 </div>
-                <center>
+                {/*<center>
                     {this.state.objcolor+""}
                     <select value={this.state.objcolor} onChange={this.changeColor}>
                         <option value="0x00ff00">Green</option>
@@ -49,6 +51,7 @@ class ObjViewer extends React.Component {
                         <option value="0xfffffff">Wight</option>
                     </select>
                 </center>
+                */}
                 <ObjViewerpage objcolor={this.props.modelColor} />
 
             </div>
@@ -58,23 +61,23 @@ class ObjViewer extends React.Component {
 }
 
 ObjViewer.propTypes = {
-  actions: PropTypes.object.isRequired,
-  modelColor: PropTypes.number.isRequired
+    actions: PropTypes.object.isRequired,
+    modelColor: PropTypes.number.isRequired
 };
 
 function mapStateToProps(state) {
-  return {
-    modelColor : state.modelColorReducer
-  };
+    return {
+        modelColor: state.modelColorReducer
+    };
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  };
+    return {
+        actions: bindActionCreators(actions, dispatch)
+    };
 }
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(ObjViewer);

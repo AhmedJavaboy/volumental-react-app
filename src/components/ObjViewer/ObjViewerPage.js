@@ -34,7 +34,7 @@ const ObjViewerPage = ({ objcolor }) => {
     function init() {
 
         container = document.createElement('div');
-        //document.body.appendChild(container);
+        document.body.appendChild(container);
         camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, .1, 1000);
         camera.position.z = 2;
 
@@ -204,7 +204,7 @@ const ObjViewerPage = ({ objcolor }) => {
     return (
         <div>
             <button className="btn btn-danger" onClick={changeColor}>change me</button>
-            {container.innerHTML}
+            
         </div>
     );
 
